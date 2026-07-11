@@ -1,4 +1,4 @@
-# AMARA — Content Creator Portfolio
+# SUCCESS — Content Creator Portfolio
 
 Editorial black-and-white portfolio for a content creator, built with **Next.js 15 (App Router) + TypeScript + Tailwind CSS v4**. The signature is the *record-light* motif: the red accent is the camera REC dot, section labels read like timecodes, and the scroll progress bar is a video scrubber.
 
