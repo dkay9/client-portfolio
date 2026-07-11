@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1a1a"/>
+      <stop offset="1" stop-color="#0d0d0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <circle cx="60" cy="60" r="10" fill="#ff2e1f"/>
+  <text x="90" y="68" fill="#f7f6f3" font-family="monospace" font-size="24" letter-spacing="6">REC</text>
+  <text x="50%" y="52%" fill="#f7f6f3" fill-opacity="0.25" font-family="Arial Black, sans-serif" font-size="133" text-anchor="middle" font-weight="900">CREATOR TALK</text>
+  <text x="50%" y="60%" fill="#8a8a86" font-family="monospace" font-size="20" text-anchor="middle" letter-spacing="4">POSTER PLACEHOLDER</text>
+</svg>
