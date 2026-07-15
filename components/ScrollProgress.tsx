@@ -30,14 +30,14 @@ export default function ScrollProgress() {
   return (
     <div
       aria-hidden
-      className="fixed top-0 left-0 right-0 z-[70] h-[3px] bg-line/60"
+      className="fixed top-0 left-0 right-0 z-70 h-0.75 bg-line/60"
     >
       <div
         className="h-full origin-left bg-rec transition-transform duration-75 ease-linear"
         style={{ transform: `scaleX(${progress})` }}
       />
       <div
-        className="playhead-glow absolute top-1/2 size-[9px] -translate-y-1/2 -translate-x-1/2 rounded-full bg-rec"
+        className="playhead-glow absolute top-1/2 size-2.25 -translate-y-1/2 -translate-x-1/2 rounded-full bg-rec"
         style={{ left: `${progress * 100}%` }}
       />
     </div>

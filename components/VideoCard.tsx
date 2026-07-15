@@ -47,7 +47,7 @@ export default function VideoCard({ project }: VideoCardProps) {
         onMouseLeave={() => preview(false)}
         aria-label={playing ? `Pause ${project.title}` : `Play ${project.title}`}
         className={`relative block w-full overflow-hidden rounded-2xl border border-ink bg-ink text-left ${
-          wide ? "aspect-video" : "aspect-[9/16]"
+          wide ? "aspect-video" : "aspect-9/16"
         }`}
       >
         {missing ? (
