@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const services = [
-  { n: "1", title: "YouTube Series", note: "Long-form storytelling" },
+  { n: "1", title: "Long-form Content", note: "Youtube Editing, Documentary" },
   { n: "2", title: "Short-form Content", note: "Reels · TikTok · Shorts" },
   { n: "3", title: "Brand Campaigns", note: "UGC & sponsored films" },
   { n: "4", title: "Podcast Production", note: "Audio & video episodes" },

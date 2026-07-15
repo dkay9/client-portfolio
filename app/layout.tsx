@@ -21,9 +21,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AMARA — Content Creator & Storyteller",
+  title: "SU — Content Creator & Storyteller",
   description:
-    "Portfolio of Amara — content creator crafting stories in video, short-form and long-form. Watch the work.",
+    "Portfolio of SU — content creator crafting stories in video, short-form and long-form. Watch the work.",
 };
 
 const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem('theme');if(t==='sunset'){document.documentElement.setAttribute('data-theme','sunset');}}catch(e){}})();`;

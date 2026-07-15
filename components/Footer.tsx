@@ -56,6 +56,9 @@ export default function Footer() {
         <p className="timecode text-paper/50">
           © {new Date().getFullYear()} Success. All rights reserved.
         </p>
+        <p className="timecode text-paper/50">
+          Made by <a href="https://davidkalu.vercel.app/" className="underline">Dkay</a>
+        </p>
       </div>
     </footer>
   );
