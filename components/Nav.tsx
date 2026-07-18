@@ -99,7 +99,7 @@ export default function Nav() {
 
       {/* ---------- Mobile: fullscreen overlay menu ---------- */}
       <div
-        className={`fixed inset-0 z-[80] bg-ink text-paper transition-[clip-path] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
+        className={`fixed inset-0 z-80 bg-ink text-paper transition-[clip-path] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
           open
             ? "[clip-path:inset(0_0_0_0)]"
             : "pointer-events-none [clip-path:inset(0_0_100%_0)]"
