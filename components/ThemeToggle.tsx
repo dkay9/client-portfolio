@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Sun } from "lucide-react";
+import { Sun, Sunset } from "lucide-react";
 
 const STORAGE_KEY = "theme";
 
@@ -16,22 +16,22 @@ export default function ThemeToggle({
   size = 13,
   strokeWidth = 1.8,
 }: ThemeToggleProps) {
-  const [sunset, setSunset] = useState(false);
+  const [light, setLight] = useState(false);
 
   // Sync with whatever the FOUC-prevention script already set on <html>
   useEffect(() => {
-    setSunset(document.documentElement.getAttribute("data-theme") === "sunset");
+    setLight(document.documentElement.getAttribute("data-theme") === "light");
   }, []);
 
   const toggle = () => {
-    const next = !sunset;
-    setSunset(next);
+    const next = !light;
+    setLight(next);
     if (next) {
-      document.documentElement.setAttribute("data-theme", "sunset");
-      localStorage.setItem(STORAGE_KEY, "sunset");
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem(STORAGE_KEY, "light");
     } else {
       document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem(STORAGE_KEY, "editorial");
+      localStorage.setItem(STORAGE_KEY, "sunset");
     }
   };
 
@@ -39,13 +39,17 @@ export default function ThemeToggle({
     <button
       type="button"
       onClick={toggle}
-      aria-pressed={sunset}
-      aria-label={sunset ? "Switch to editorial theme" : "Switch to sunset theme"}
+      aria-pressed={light}
+      aria-label={light ? "Switch to sunset theme" : "Switch to light theme"}
       className={`rounded-full border p-2 transition-colors duration-300 ${
-        sunset ? "border-rec bg-rec text-paper" : "border-line hover:border-ink"
+        light ? "border-rec bg-rec text-paper" : "border-line hover:border-ink"
       } ${className}`}
     >
-      <Sun size={size} strokeWidth={strokeWidth} />
+      {light ? (
+        <Sunset size={size} strokeWidth={strokeWidth} />
+      ) : (
+        <Sun size={size} strokeWidth={strokeWidth} />
+      )}
     </button>
   );
 }

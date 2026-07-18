@@ -2,7 +2,8 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import About from "@/components/About";
 import FeaturedWork from "@/components/FeaturedWork";
-import Services from "@/components/Services";
+import CharacterSkills from "@/components/CharacterSkills";
+import Brands from "@/components/Brands";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,7 +13,8 @@ export default function Home() {
       <Marquee />
       <About />
       <FeaturedWork />
-      <Services />
+      <CharacterSkills />
+      <Brands />
       <Footer />
     </main>
   );

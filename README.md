@@ -39,8 +39,8 @@ The first 3 entries in `lib/projects.ts` are featured on the home page (change `
 - **Name / copy** — `components/Hero.tsx`, `About.tsx`, `Footer.tsx`, and `app/layout.tsx` metadata
 - **Colors** — the `@theme` block in `app/globals.css` (`--color-rec` is the accent)
 - **Social links** — `components/Nav.tsx` and `components/Footer.tsx`
-- **Stats** — `components/About.tsx`
-- **Services** — `components/Services.tsx`
+- **Character skills** — `components/CharacterSkills.tsx`
+- **Brands** — `components/Brands.tsx`; the `brands` array renders placeholder text wordmarks (with a "Placeholder logo" caption) — replace the `mark` values with real brand names, or swap in actual `<img>` logos once you have them
 
 ## Behavior notes
 

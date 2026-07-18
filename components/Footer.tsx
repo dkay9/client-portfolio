@@ -5,7 +5,7 @@ const socials = [
   { label: "Instagram", href: "https://instagram.com" },
   { label: "YouTube", href: "https://youtube.com" },
   { label: "TikTok", href: "https://tiktok.com" },
-  { label: "X / Twitter", href: "https://x.com" },
+  { label: "Pinterest", href: "https://pinterest.com" },
 ];
 
 export default function Footer() {
@@ -25,11 +25,11 @@ export default function Footer() {
       <Reveal>
         <p className="timecode mb-6 flex items-center gap-2 text-paper/60">
           <span className="size-2 rounded-full bg-rec animate-blink" />
-          00:04 — Roll credits
+          00:05 — Roll credits
         </p>
         <h2 className="display text-[clamp(3.5rem,14vw,11rem)]">
           <span className="block headline-fade-inverse">Let&apos;s</span>
-          <span className="block outline-text-paper">Talk</span>
+          <span className="block outline-text-inverse">Talk</span>
         </h2>
       </Reveal>
 
@@ -50,6 +50,13 @@ export default function Footer() {
             {social.label}
           </a>
         ))}
+      </Reveal>
+
+      <Reveal delay={220} className="mt-8">
+        <p className="max-w-lg text-paper/80">
+          My dear future client, I hope and believe with these few points and
+          humor, we can make the future a reality.
+        </p>
       </Reveal>
 
       <div className="mt-20 flex flex-wrap items-center justify-between gap-4 border-t border-paper/15 pt-6">

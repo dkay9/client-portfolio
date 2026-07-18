@@ -1,19 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0d0d0d;
-  --color-paper: #f7f6f3;
-  --color-smoke: #8a8a86;
-  --color-line: #dedcd6;
-  --color-rec: #ff2e1f;
+  /* Sunset (orange) theme is the default */
+  --color-ink: #fff9f2;
+  --color-paper: #f4691e;
+  --color-smoke: #ffd9bd;
+  --color-line: #ff8e52;
+  --color-rec: #14395d;
 
   --font-display: var(--font-anton), sans-serif;
   --font-body: var(--font-archivo), sans-serif;
   --font-mono: var(--font-jetbrains), monospace;
 
   --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-slow: marquee 40s linear infinite;
   --animate-blink: blink 1.4s steps(1) infinite;
-  --animate-spin-slow: spin 14s linear infinite;
+}
+
+/* Light (white editorial) theme override */
+[data-theme="light"] {
+  --color-ink: #0d0d0d;
+  --color-paper: #f7f6f3;
+  --color-smoke: #8a8a86;
+  --color-line: #dedcd6;
+  --color-rec: #ff2e1f;
 }
 
 :root {
@@ -24,40 +34,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ---------- Sunset theme ---------- */
-html[data-theme="sunset"] {
-  --color-paper: #f4691e;
-  --color-ink: #fff9f2;
-  --color-smoke: #ffd9bd;
-  --color-line: #ff8e52;
-  --color-rec: #14395d;
-}
-
 body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-}
-
-/* ---------- Theme transition ---------- */
-*,
-*::before,
-*::after {
-  transition-property: background-color, border-color, color;
-  transition-duration: 0.25s;
-  transition-timing-function: ease-out;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 ::selection {
   background: var(--color-rec);
-  color: var(--color-paper);
-}
-
-/* Keep selection text on --color-ink for contrast against --color-rec */
-html[data-theme="sunset"] ::selection {
-  color: var(--color-ink);
+  color: #fff;
 }
 
 /* ---------- Display type ---------- */
@@ -69,30 +57,7 @@ html[data-theme="sunset"] ::selection {
 }
 
 .headline-fade {
-  background: linear-gradient(
-    180deg,
-    var(--color-ink) 30%,
-    color-mix(in srgb, var(--color-paper) 60%, var(--color-ink)) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Sunset: fade straight to the peach token instead of the computed mix */
-html[data-theme="sunset"] .headline-fade {
   background: linear-gradient(180deg, var(--color-ink) 30%, var(--color-smoke) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-/* Same fade, tuned for dark (bg-ink) sections like the footer */
-.headline-fade-inverse {
-  background: linear-gradient(
-    180deg,
-    var(--color-paper) 30%,
-    color-mix(in srgb, var(--color-paper) 40%, var(--color-ink)) 100%
-  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -103,7 +68,15 @@ html[data-theme="sunset"] .headline-fade {
   -webkit-text-stroke: 1.5px var(--color-ink);
 }
 
-.outline-text-paper {
+/* Inverse-block text (sections using bg-ink) */
+.headline-fade-inverse {
+  background: linear-gradient(180deg, var(--color-paper) 30%, var(--color-smoke) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.outline-text-inverse {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--color-paper);
 }
@@ -119,11 +92,6 @@ html[data-theme="sunset"] .headline-fade {
 /* ---------- Vertical (rotated) text ---------- */
 .vertical-rl {
   writing-mode: vertical-rl;
-}
-
-/* ---------- Scroll progress playhead glow ---------- */
-.playhead-glow {
-  box-shadow: 0 0 8px color-mix(in srgb, var(--color-rec) 80%, transparent);
 }
 
 /* ---------- Keyframes ---------- */
@@ -142,11 +110,6 @@ html[data-theme="sunset"] .headline-fade {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes rise-sm {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes slide-right {
   from { opacity: 0; transform: translateX(-32px); }
   to { opacity: 1; transform: translateX(0); }
@@ -155,11 +118,6 @@ html[data-theme="sunset"] .headline-fade {
 @keyframes clip-up {
   from { clip-path: inset(100% 0 0 0); }
   to { clip-path: inset(0 0 0 0); }
-}
-
-@keyframes grow-line {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
 }
 
 /* ---------- Page-load hero choreography ---------- */
@@ -172,7 +130,26 @@ html[data-theme="sunset"] .headline-fade {
   animation: clip-up 1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* ---------- Scroll reveal (driven by Reveal component) ---------- */
+/* ---------- Intro line fade (headline phrase loop) ---------- */
+.intro-line {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.intro-line.is-on {
+  opacity: 1;
+  transform: translateY(0);
+}
+.intro-line.is-off {
+  opacity: 0;
+  transform: translateY(-16px);
+  transition-duration: 0.5s;
+}
+
+/* ---------- Scroll reveal ---------- */
 .reveal {
   opacity: 0;
   transform: translateY(36px);
@@ -185,6 +162,15 @@ html[data-theme="sunset"] .headline-fade {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ---------- Character skill meters ---------- */
+.skill-fill {
+  width: 0%;
+  transition: width 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+.reveal.is-visible .skill-fill {
+  width: var(--w);
 }
 
 /* ---------- Hover: arrow launch ---------- */
@@ -218,4 +204,5 @@ html[data-theme="sunset"] .headline-fade {
   }
   .reveal { opacity: 1; transform: none; }
   .hero-rise { opacity: 1; }
+  .skill-fill { width: var(--w); }
 }
