@@ -2,10 +2,10 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const socials = [
-  { label: "Instagram", href: "https://instagram.com" },
+  { label: "Instagram", href: "https://www.instagram.com/discoverwithsu?igsh=anlvbmZjYWZtbGRy" },
   { label: "YouTube", href: "https://youtube.com" },
   { label: "TikTok", href: "https://tiktok.com" },
-  { label: "Pinterest", href: "https://pinterest.com" },
+  { label: "Pinterest", href: "https://pin.it/3cpogIaHE" },
 ];
 
 export default function Footer() {
@@ -33,6 +33,13 @@ export default function Footer() {
         </h2>
       </Reveal>
 
+      <Reveal delay={220} className="mt-8">
+        <p className="max-w-lg text-paper/80">
+          My dear future client, I hope and believe with these few points and
+          humor, we can make the future a reality.
+        </p>
+      </Reveal>
+
       <Reveal delay={150} className="mt-12 flex flex-wrap items-center gap-3">
         <a
           href="mailto:hello@amara.studio"
@@ -50,13 +57,6 @@ export default function Footer() {
             {social.label}
           </a>
         ))}
-      </Reveal>
-
-      <Reveal delay={220} className="mt-8">
-        <p className="max-w-lg text-paper/80">
-          My dear future client, I hope and believe with these few points and
-          humor, we can make the future a reality.
-        </p>
       </Reveal>
 
       <div className="mt-20 flex flex-wrap items-center justify-between gap-4 border-t border-paper/15 pt-6">
