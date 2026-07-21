@@ -10,7 +10,6 @@ export interface Project {
   /** Optional poster image shown before playback */
   poster?: string;
   year: string;
-  duration: string;
 }
 
 /**
@@ -29,17 +28,15 @@ export const projects: Project[] = [
     src: "/videos/city-stories.mp4",
     poster: "/posters/city-stories.svg",
     year: "2026",
-    duration: "12:40",
   },
   {
     slug: "morning-routine",
     title: "Morning Routine",
     category: "Short-form / Reels",
     aspect: "9:16",
-    src: "/videos/morning-routine.mp4",
+    src: "/videos/cl-cid.mp4",
     poster: "/posters/morning-routine.svg",
     year: "2026",
-    duration: "00:58",
   },
   {
     slug: "brand-launch",
@@ -49,7 +46,6 @@ export const projects: Project[] = [
     src: "/videos/brand-launch.mp4",
     poster: "/posters/brand-launch.svg",
     year: "2025",
-    duration: "02:15",
   },
   {
     slug: "street-food",
@@ -59,7 +55,6 @@ export const projects: Project[] = [
     src: "/videos/street-food.mp4",
     poster: "/posters/street-food.svg",
     year: "2025",
-    duration: "01:30",
   },
   {
     slug: "creator-talk",
@@ -69,7 +64,6 @@ export const projects: Project[] = [
     src: "/videos/creator-talk.mp4",
     poster: "/posters/creator-talk.svg",
     year: "2025",
-    duration: "45:02",
   },
   {
     slug: "fashion-week",
@@ -79,7 +73,6 @@ export const projects: Project[] = [
     src: "/videos/fashion-week.mp4",
     poster: "/posters/fashion-week.svg",
     year: "2024",
-    duration: "00:45",
   },
 ];
 

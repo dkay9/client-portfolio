@@ -99,11 +99,6 @@ export default function VideoCard({ project }: VideoCardProps) {
             </span>
           </span>
         )}
-
-        {/* Bottom duration */}
-        <span className="absolute bottom-3 right-3 rounded bg-ink/70 px-2 py-1 timecode text-paper backdrop-blur-sm">
-          {project.duration}
-        </span>
       </button>
 
       <figcaption className="mt-4 flex items-start justify-between gap-4">
